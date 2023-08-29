@@ -1,0 +1,88 @@
+---
+title: 브라우저 에이전트 설치
+tags:
+  - Browser
+  - Browser monitoring
+  - Installation
+metaDescription: 'How to deploy browser monitoring in New Relic for your apps, including UI, copy/paste, and API options.'
+signupBanner:
+  text: Monitor and improve your entire stack. 100GB free. Forever.
+translationType: human
+---
+
+import browserInstallBrowser from 'images/browser_screenshot-crop_install-browser.webp'
+
+브라우저 모니터링을 시작하려면, 모니터링하려는 뷰의 HTML에 브라우저 에이전트를 추가해야 합니다. 브라우저 에이전트는 앱/사이트의 성능을 모니터링하고 그 데이터를 뉴렐릭으로 보내는 JavaScript 코드 스니펫입니다. 코드는 사이트에 수동으로 추가하거나, APM 에이전트를 사용해 삽입할 수 있습니다.
+
+## 시작하기 전에 [#before-start]
+
+시작하기 전에 브라우저 앱이 Google의 [호환 요구사항](/docs/browser/new-relic-browser/getting-started/compatibility-requirements-browser-monitoring)을 충족하는지 확인하십시오.
+
+API를 사용해 애플리케이션을 프로그래밍 방식으로 모니터링하길 원하십니까? [NerdGraph를 사용한 브라우저 모니터링](/docs/apis/nerdgraph/examples/browser-monitoring-config-nerdgraph)을 참조하십시오.
+
+## 에이전트 설치 [#install]
+
+브라우저 에이전트를 설치하려면: **[one.newrelic.com](https://one.newrelic.com) > Add data > Browser and mobile > Browser monitoring**으로 이동하여 지침을 따릅니다.
+
+<ButtonGroup>
+  <ButtonLink
+    role="button"
+    to="https://onenr.io/0MRNpYqNqQn"
+    variant="primary"
+  >
+    브라우저 모니터링 설치
+  </ButtonLink>
+</ButtonGroup>
+
+설치 프로세스에 대한 질문이 있는 경우 [설치 방법](#choose-deployment)을 참조하십시오.
+
+<img
+  title="Install browser"
+  alt="Install browser"
+  src={browserInstallBrowser}
+/>
+
+## 뉴렐릭에서 데이터 찾기 [#generate-traffic]
+
+브라우저 에이전트 설치가 완료되면 몇 분 정도 기다렸다가 [브라우저 모니터링 UI](/docs/browser/browser-monitoring/getting-started/browser-summary-page) 에서 데이터를 찾습니다.
+
+15분 이상 지났는데도 데이터가 표시되지 않으면 [문제 해결](/docs/browser/browser-monitoring/troubleshooting/troubleshoot-your-browser-monitoring-installation/) 참조하십시오.
+
+## 다음 단계는? [#whats-next]
+
+다음 단계를 위한 아이디어:
+
+* [Summary 페이지](/docs/browser/browser-monitoring/getting-started/browser-summary-page)에서 앱 데이터를 확인해 보십시오.
+* 이제 브라우저 에이전트로 계측했으므로 [웹사이트 개선 튜토리얼](/docs/journey-performance/guide-to-monitoring-core-web-vitals)에서 데이터를 자세히 살펴볼 수 있습니다.
+* [브라우저 모니터링 모범 사례 가이드](/docs/new-relic-solutions/best-practices-guides/full-stack-observability/browser-monitoring-best-practices-guide)를 통해 브라우저 모니터링 환경을 최적화하는 방법을 알아보십시오.
+
+## 설치 방법 [#choose-deployment]
+
+두 가지 방법으로 웹 페이지에 브라우저 에이전트를 추가할 수 있습니다.
+
+* APM + 브라우저 모니터링: 브라우저 모니터링을 자동 계측할 수 있도록 APM 에이전트 중 하나를 사용합니다.
+* 브라우저 모니터링만: 브라우저 에이전트를 JavaScript 스니펫으로 프런트 엔드 HTML에 수동으로 추가합니다.
+
+다음은 이 두 가지 방법에 대한 자세한 설명입니다.
+
+### APM + 브라우저 모니터링 [#apm-agent]
+
+APM(애플리케이션 성능 모니터링) 에이전트를 사용하여 브라우저 앱의 백엔드를 모니터링하는 경우 이 방법을 사용하는 것이 좋습니다. APM 에이전트는 웹사이트의 모든 페이지에 브라우저 에이전트를 자동으로 배포하고 APM 에이전트를 다시 시작할 때마다 브라우저 에이전트의 최신 버전을 자동으로 가져오기 때문에, 이 옵션은 비 [SPA ](/docs/browser/single-page-app-monitoring/get-started/introduction-single-page-app-monitoring)앱에 권장됩니다.
+
+APM 에이전트 동작을 맞춤화하려는 경우 APM 에이전트 API를 사용할 수 있습니다. 다음은 관련 문서입니다.
+
+* [Go](/docs/agents/go-agent/features/install-new-relic-browser-go-apps)
+* [Java](/docs/agents/java-agent/instrumentation/page-load-timing-java)
+* [.NET](/docs/agents/net-agent/features/page-load-timing-net)
+* [Node.js](/docs/agents/nodejs-agent/supported-features/page-load-timing-nodejs)
+* [PHP](/docs/agents/php-agent/features/page-load-timing-php)
+* [Python](/docs/agents/python-agent/supported-features/page-load-timing-python)
+* [Ruby](/docs/agents/ruby-agent/features/page-load-timing-ruby)
+
+### 브라우저 모니터링만 [#copy-paste]
+
+[SPA](/docs/browser/single-page-app-monitoring/get-started/introduction-single-page-app-monitoring) 앱이 있거나 APM 에이전트가 자동 주입을 지원하지 않는 경우(Node.js 및 일부 Java 앱의 경우)와 같이 어떤 이유로든 APM을 사용할 수 없는 경우 이 방법을 사용합니다. 이 방법을 사용하면 뉴렐릭 UI에서 설치 프로세스가 끝날 때 맞춤화된 JavaScript 스니펫을 받아 이를 앱/사이트에서 모니터링하려는 모든 페이지의 HTML에 추가합니다.
+
+JavaScript 스니펫은 앱에서 뷰의 `<head>` 태그에 붙여 넣어야 합니다. head 태그는 일반적으로 모든 앱 페이지에 로드되는 서드파티 스크립트, 글꼴 및 기타 요소를 처리하므로 한 곳에만 붙여 넣으면 됩니다. 가능한 한 `<head>`의 상단에 가깝게 붙여 넣되, 위치에 민감한 META 태그(예: X-UA-Compatible 및 charset) 뒤에 붙여 넣습니다. 스니펫 배치에 대한 자세한 내용은 [JavaScript 배치 요구 사항](/docs/browser/new-relic-browser/page-load-timing-resources/instrumentation-browser-monitoring#javascript-placement)을 참조하십시오.
+
+<InstallFeedback/>

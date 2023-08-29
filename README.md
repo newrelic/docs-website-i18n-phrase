@@ -1,44 +1,54 @@
-<a href="https://opensource.newrelic.com/oss-category/#new-relic-experimental"><picture><source media="(prefers-color-scheme: dark)" srcset="https://github.com/newrelic/opensource-website/raw/main/src/images/categories/dark/Experimental.png"><source media="(prefers-color-scheme: light)" srcset="https://github.com/newrelic/opensource-website/raw/main/src/images/categories/Experimental.png"><img alt="New Relic Open Source experimental project banner." src="https://github.com/newrelic/opensource-website/raw/main/src/images/categories/Experimental.png"></picture></a>
+[![Community Project header](https://github.com/newrelic/opensource-website/raw/master/src/images/categories/Community_Project.png)](https://opensource.newrelic.com/oss-category/#community-project)
 
-# [Name of Project] [build badges go here when available]
+# docs.newrelic.com
 
->[Brief description - what is the project and value does it provide? How often should users expect to get releases? How is versioning set up? Where does this project want to go?]
+Welcome! 👋  This is the repo for [docs.newrelic.com](https://docs.newrelic.com). This repo contains all the source code and Markdown source files we use to build our docs site.
 
-## Installation
+Read on to learn more about who we are and how you can contribute to the New Relic Docs site.
 
-> [Include a step-by-step procedure on how to get your code installed. Be sure to include any third-party dependencies that need to be installed separately]
+## We'd like your help
 
-## Getting Started
->[Simple steps to start working with the software similar to a "Hello World"]
+From the start, we've welcomed contributions from anyone at New Relic, not just writers. Now, we're open sourcing our docs to invite input from anyone at all. We credit our technical accuracy and comprehensive documentation to this openness.
 
-## Usage
->[**Optional** - Include more thorough instructions on how to use the software. This section might not be needed if the Getting Started section is enough. Remove this section if it's not needed.]
+In a sense, it's documentation as conversation. By making our docs open source, we hope to expand this conversation.
 
+We're here working every day to improve our docs and we'd love to hear from you. Come join the conversation.
 
-## Building
+## Get started
 
->[**Optional** - Include this section if users will need to follow specific instructions to build the software from source. Be sure to include any third party build dependencies that need to be installed separately. Remove this section if it's not needed.]
+On each page of our docs, you can [create an issue](https://github.com/newrelic/docs-website/issues/new/choose) or [edit a page](https://docs.newrelic.com/docs/style-guide/writing-guidelines/create-edit-content/#edit-doc).
 
-## Testing
+### Create an issue
 
->[**Optional** - Include instructions on how to run tests if we include tests with the codebase. Remove this section if it's not needed.]
+Issues are a quick way to give us feedback about our docs. We'll review your issue and follow up with you if we have any questions. You can create an issue to let us know when you find an error or notice something missing. You can also let us know about things you'd like to see. Go here to [create an issue](https://github.com/newrelic/docs-website/issues/new/choose).
 
-## Support
+### Edit a page
 
-New Relic hosts and moderates an online forum where customers can interact with New Relic employees as well as other customers to get help and share best practices. Like all official New Relic open source projects, there's a related Community topic in the New Relic Explorers Hub. You can find this project's topic/threads here:
+If you'd like to get more directly involved, you can edit the docs yourself! Here's how:
 
->Add the url for the support thread here
+1. Every doc page on docs.newrelic.com has an **Edit page** pencil button in the right sidebar and the footer. Click it to access GitHub and the source file for that doc page.
+2. Make your changes, then click **Commit changes**. This will automatically create a fork in your GitHub account with the changes.
+3. Finally, follow the prompts to create a pull request and submit your changes for review. 
 
-## Contributing
-We encourage your contributions to improve [project name]! Keep in mind when you submit your pull request, you'll need to sign the CLA via the click-through using CLA-Assistant. You only have to sign the CLA one time per project.
-If you have any questions, or to execute our corporate CLA, required if your contribution is on behalf of a company,  please drop us an email at opensource@newrelic.com.
+From there our writers will check out your pull request, comment with any feedback, and merge your change.
 
-**A note about vulnerabilities**
+If you'd like more information on how to edit our docs, read our [processes to create and edit content](https://docs.newrelic.com/docs/style-guide/writing-guidelines/create-edit-content/). Additionally, our [Style guide](https://docs.newrelic.com/docs/style-guide) will give you some insight into how we think about writing and documentation, as well as our flavor of Markdown. Reading the style guide is totally optional! Our writers are here to make sure everything is formatted and worded right. We're looking for your technical insight and knowhow. Let us handle the little details for you.
 
-As noted in our [security policy](../../security/policy), New Relic is committed to the privacy and security of our customers and their data. We believe that providing coordinated disclosure by security researchers and engaging with the security community are important means to achieve our security goals.
+If you'd like to go deeper with development, see our [Contributors guide](CONTRIBUTING.md) for information on how to fork our site, build it locally, and submit pull requests.
 
-If you believe you have found a security vulnerability in this project or any of New Relic's products or websites, we welcome and greatly appreciate you reporting it to New Relic through [HackerOne](https://hackerone.com/newrelic).
+## 🚧 Contributing
 
-## License
-[Project Name] is licensed under the [Apache 2.0](http://apache.org/licenses/LICENSE-2.0.txt) License.
->[If applicable: The [project name] also uses source code from third-party libraries. You can find full details on which libraries are used and the terms under which they are licensed in the third-party notices document.]
+We welcome contributions to the New Relic Docs Site. Please review our [Contributors Guide](CONTRIBUTING.md) prior to submitting any code.
+
+Keep in mind when you submit your pull request, you'll need to sign the CLA via the click-through using CLA-Assistant. You only have to sign the CLA one time per project. If you have any questions, or to execute our corporate CLA, required if your contribution is on behalf of a company, please drop us an email at opensource@newrelic.com.
+
+## New Relic Developer and Open Source sites
+
+You may also be interested in the New Relic [Developer website](https://github.com/newrelic/developer-website) and [Open Source website](https://github.com/newrelic/opensource-website) repos.
+
+## 🏛️ Content and code license
+
+- The content of New Relic product documentation in the `docs-website` repository is licensed under a [CC-BY-NC-SA 4.0 license](LICENSE).
+- Code, including sample code, contained in the `docs-website` repository is licensed under the [Apache 2.0 license](LICENSE-CODE.md).
+- When using New Relic logos, follow New Relic’s [media assets guidelines](https://newrelic.com/about/media-assets).
+- The `docs-website` project also uses source code from third-party libraries. You can find full details on which libraries are used and the terms under which they are licensed in the third-party notices document.

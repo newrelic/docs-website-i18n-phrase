@@ -1,0 +1,86 @@
+title: root
+path: /
+pages:
+  - title: Start here
+  - title: Start using New Relic
+    path: /docs/new-relic-solutions/get-started/intro-new-relic
+  - title: My app is slow
+    path: tutorial-app-slow
+  - title: Improve your website's performance
+    path: tutorial-app-performance
+  - title: Tutorials and guides
+  - title: Create and manage alerts
+    path: tutorial-create-alerts
+  - title: Find the source of your errors
+    path: tutorial-errors
+  - title: Manage large amounts of logs
+    path: tutorial-large-logs
+  - title: Prepare for peak demand
+    path: tutorial-peak-demand
+  - title: Migrate from Datadog 
+    path: tutorial-dd-migration
+  - title: Optimize your telemetry data
+    path: tutorial-data-ingest-gov
+  - title: Guides and best practices
+    path: new-relic-solutions
+  - title: Monitor your data
+  - title: Application Monitoring (APM)
+    path: apm
+  - title: Browser Monitoring
+    path: browser
+  - title: Infrastructure Monitoring
+    path: infrastructure
+  - title: Kubernetes and Pixie
+    path: kubernetes-pixie
+  - title: Log Management
+    path: logs
+  - title: Mobile Monitoring
+    path: mobile-monitoring
+  - title: Model Performance Monitoring
+    path: mlops
+  - title: Network Monitoring
+    path: network-performance-monitoring
+  - title: Serverless Monitoring
+    path: serverless-function-monitoring
+  - title: Synthetic Monitoring
+    path: synthetics
+  - title: Data insights
+  - title: Alerts and Applied Intelligence
+    path: alerts-applied-intelligence
+  - title: Change Tracking
+    path: change-tracking
+  - title: Charts, dashboards, and querying
+    path: dashboards
+  - title: Distributed Tracing
+    path: distributed-tracing
+  - title: Service Level Management
+    path: service-level-management
+  - title: Other capabilities
+  - title: CodeStream
+    path: codestream
+  - title: Errors Inbox
+    path: errors-inbox
+  - title: IAST
+    path: iast
+  - title: Open-source integrations
+    path: integrations
+  - title: Vulnerability Management
+    path: vuln-management
+  - title: Website performance monitoring
+    path: website-performance-monitoring
+  - title: Latest updates
+  - title: Release notes
+    path: release-notes
+  - title: What's new?
+    path: whats-new
+  - title: Admin and data
+  - title: Account & user management
+    path: accounts
+  - title: Data and APIs
+    path: telemetry-data-platform
+  - title: Data dictionary
+    path: /attribute-dictionary
+  - title: Licenses
+    path: licenses
+  - title: Security and privacy
+    path: new-relic-security

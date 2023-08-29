@@ -1,0 +1,354 @@
+---
+title: オブザーバビリティセンターオブエクセレンス：オブザーバビリティチームの作成
+tags:
+  - Observability maturity
+  - Operational efficiency
+  - OE
+  - Center of Excellence
+  - Observability Center of Excellence
+  - Implementation guide
+translationType: human
+---
+
+import omaCoeScaleStandardsSpeed from 'images/oma_diagram_coe-value.webp'
+
+import omaCoeElements from 'images/oma_diagram_coe-elements.webp'
+
+import omaCoeFramework from 'images/oma_diagram_coe-framework.webp'
+
+import omaCoeStakeholders from 'images/oma_diagram_coe-stakeholders.webp'
+
+import omaCoeModel from 'images/oma_diagram_coe-model.webp'
+
+import omaCoeRamp from 'images/oma_diagram_coe-ramp.webp'
+
+import omaCoeChannels from 'images/oma_diagram_coe-channels.webp'
+
+import omaCoeKnowledgeBase from 'images/oma_diagram_coe-knowledge-base.webp'
+
+このガイドでは、オブザーバビリティのベストプラクティスに焦点を当て、センターオブエクセレンス(CoE)を採用する方法について説明します。オブザーバビリティセンターオブエクセレンス（OCoE）を採用することで、組織全体で基準、スピード、規模を推進し、オブザーバビリティソリューションへの投資収益を最大化できます。これは、[オブザーバビリティの成熟度に関するシリーズ](/docs/new-relic-solutions/observability-maturity/introduction)の一部です。
+
+## センターオブエクセレンスとは [#coe-definition]
+
+センターオブエクセレンス（CoE）とは、組織横断で、複数分野の専門家を集約したチームのことです。彼らの任務は、組織のためにツール、テクニック、プラクティスを探求し、採用をリードすることです。
+
+CoEは、セキュリティ、アプリケーション、クラウドサービス、自動化など、さまざまな分野に関与しています。
+
+<img
+  title="CoE purpose venn diagram"
+  alt="CoE purpose venn diagram"
+  src={omaCoeScaleStandardsSpeed}
+/>
+
+以下の15分の動画では、CoEセンターオブエクセレンスのコンセプトを説明しています。
+
+<Video
+  id="d1ddzUKSLrk"
+  type="youtube"
+/>
+
+## オブザーバビリティCoEを構築する理由 [#coe-value]
+
+オブザーバビリティセンターオブエクセレンス（OCoE）により、**採用**、**実装**、**専門知識**という3つの主要分野でメリットが得られます。
+
+**採用**：
+
+* オブザーバビリティの実践、ツール、プロセスを幅広く採用
+* 新チーム立ち上げ時間の短縮
+* スキルのサイロ化の解消
+
+**実装**：
+
+* 実装のための基準と規定のフレームワークの維持
+* イネーブルメント、学習、トレーニングのためのサポートされたフレームワークの作成
+* 常に最新のオブザーバビリティを実現
+
+**専門知識**：
+
+* コラボレーションにより、成功とベストプラクティスを共有
+* 実務担当者が同僚からサポートを受けられる環境作り
+* 常に専門知識を最新に保つ
+
+OCoEの実装が成功すると、組織はリスクを軽減し、運用効率を高め、サービス提供を改善できます。これは、変化する需要に対応するためにアプリケーションやサービスが進化するにつれて、企業が目標と目的を達成するのに役立ちます。
+
+## コアコンセプト [#coe-components]
+
+<img
+  title="OCoe elements"
+  alt="OCoe elements"
+  src={omaCoeElements}
+/>
+
+OCoEは、主に**フレームワーク**、**主要なステークホルダー**、**オペレーティングモデル**という3つのコア要素で構成されています。
+
+### フレームワーク [#coe-framework]
+
+<img
+  title="OCoe framework"
+  alt="OCoe framework"
+  src={omaCoeFramework}
+/>
+
+### 主要なステークホルダー [#coe-stakeholders]
+
+OCoEの主なステークホルダーは、OCoE自体の主要な消費者であり、貢献者です。以下の責任を担います。
+
+* OCoEの作成、維持、サポート
+* OCoEに含める基準とベストプラクティスの選択
+
+ステークホルダーには、**コアチーム、**評議会**、****ギルド**の3種類があります（組織内では他の名称の場合があります）。
+
+<img
+  title="OCoe stakeholders"
+  alt="OCoe stakeholders"
+  src={omaCoeStakeholders}
+/>
+
+#### ステークホルダー1：コアチーム [#ocoe-core-team]
+
+これは、OCoEの維持を担当する中心的なチームです。
+
+責任項目は、以下になります。
+
+* New Relicとの関係の維持
+* アカウントとユーザーの管理と調整
+* 新しいチームや個人のオンボーディング
+* リソースとナレッジベースのメンテナンス
+* チーム間の連携と共有の推進
+
+通常、これはオブザーバビリティの経歴があり、New Relicに精通している1～3人のチームです。平均して、通常の役割と並行してOCoEで週2～3時間働きます。
+
+#### ステークホルダー2：評議会 [#observability-council]
+
+評議会のステークホルダーは、組織全体でオブザーバビリティ基準を選択、作成、承認、促進する責任を負うリーダーのグループです。
+
+責任項目は、以下になります。
+
+* ソートリーダーシップと方向性
+* 基準とツールの定義と合意
+* 実装品質の確保
+
+組織の規模と構造によって、このチームの規模は異なります。これは、組織全体の個人で構成され、オブザーバビリティ基準がビジネス全体で実装および維持されるよう徹底することに終始しています。この機能は、運用、開発、サポートでリーダーシップの役割を持つユーザーに推奨されます。時間について多大なコミットメントを必要としないアドバイザーの役割を担うユーザーが対象です。
+
+#### ステークホルダー3：ギルド [#observability-guild]
+
+ギルドのステークホルダーは、オブザーバビリティ、ツールに対して経験と情熱を持ち、他のユーザーを助ける意思のある、組織全体の職能上の域を超えた個人のグループです。OCoEの中心的存在であり、他のユーザーをサポートし、そのコンテンツを生成する主な貢献者です。
+
+責任項目は、以下になります。
+
+* 他のユーザーからの質問への回答
+* ナレッジベースへの貢献
+* ベストプラクティスの実践
+* セルフヘルプとコラボレーションの環境作り
+* New Relicの技術支援ワークショップやイベントへの参加
+
+ギルドメンバーは任命制ではありませんが、オブザーバビリティに対する情熱と専門知識に基づいて自発的に行う必要があります。組織内のギルドメンバーの数はさまざまですが、チーム全体でオブザーバビリティのベストプラクティスの採用が増加するにつれて、一般的に増加します。ギルドの一員であることは日常業務の一部ですが、自分たちと他のユーザーがOCoEの恩恵を受けるのに役立ちます。
+
+### 運用モデル [#coe-model]
+
+OCoEを構成するエンティティと、OCoEとやり取りする主要なステークホルダーについて説明しました。OCoEの最後のコア要素は、すべての要素をまとめた運用モデルになります。以下に、このガイドの後半で詳しく説明するモデルの視覚化を示します。
+
+<img
+  title="OCoe model"
+  alt="OCoe model"
+  src={omaCoeModel}
+/>
+
+OCoEの作成と運用は、次の2つの重要なステージに分けられます。
+
+* **ステージ1**：選択したオブザーバビリティのベストプラクティスの採用をサポートするOCoEフレームワークを作成する。
+* **ステージ2**：OCoEの継続的なメンテナンスとサポートにより、ベストプラクティスと基準、ならびにコンテンツとイネーブルメントマテリアルを最新かつ適切な状態に維持する。
+
+<img
+  title="OCoe stages"
+  alt="OCoe stages"
+  src={omaCoeRamp}
+/>
+
+## ステージ1：立ち上げ [#coe-stage1]
+
+OCoEの立ち上げ段階では、イニシアチブの背後にある概念を説明し、目標と主要な関係者を理解するワークショップを開催します。採用するサポート技術とベストプラクティスを選択してから、それらをサポートするアセットをOCoEに投入します。
+
+### 手順 [#coe-steps]
+
+<CollapserGroup>
+  <Collapser
+    id="step1"
+    title="1. 目標の理解"
+  >
+    OCoEの構築を通じて達成したい内容望ましい結果であれば、OCoEの成功の評価方法が決まります。
+  </Collapser>
+
+  <Collapser
+    id="step2"
+    title="2. 成功するKPIの選択"
+  >
+    これらは目標に基づき、以下のようなものがあります。
+
+    * オブザーバビリティ実現までの時間
+    * MTTD（平均検出時間）
+    * MTTR（平均解決時間）
+    * サクセスストーリー
+    * オンボードユーザー数
+  </Collapser>
+
+  <Collapser
+    id="step3"
+    title="3. リーダーシップのスポンサーシップの確立"
+  >
+    OCoEイニシアチブ、目的に沿ったスポンサー、望ましい成果、成功のための手段に関する合意には、上層部のリーダーシップのスポンサーシップを得ることが重要です。
+  </Collapser>
+
+  <Collapser
+    id="step4"
+    title="4. 主要なステークホルダーの特定"
+  >
+    * コアチーム：New Relicとの関係を維持し、OCoEプラットフォームを維持する
+    * オブザーバビリティ評議会：実施すべき基準とベストプラクティスを決定する
+  </Collapser>
+
+  <Collapser
+    id="step5"
+    title="5. サポート技術の選定と実装"
+  >
+    * [コラボレーションチャネル](#coe-collab-channels)：推奨されるコラボレーションツールを理解し、推奨チャネルを望ましいソリューションに実装します。
+    * [学習リソース](https://learn.newrelic.com/)：適切な学習リソースを割り当てて、オンボーディングとイネーブルメントのプロセスをサポートします。
+    * [ナレッジベース](#coe-knowledge-base)：知識の共有に使用するプラットフォームを決定します。そのプラットフォームにOCoEローンチパッドを実装して、ナレッジベースのフレームワークを作成します。
+  </Collapser>
+
+  <Collapser
+    id="step6"
+    title="6. ベストプラクティスの選択"
+  >
+    * オブザーバビリティ基準：OCoEの一部として実装する基準を決定します。これには、インストゥルメンテーション基準、命名およびタグ付け規則、カスタム属性、イベントなどが含まれます。詳細については、使用しているオブザーバビリティソリューションの[ベストプラクティスガイド](/docs/new-relic-solutions/overview)を参照してください。
+    * オブザーバビリティのユースケース：OCoEの一部として実装する[オブザーバビリティの成熟度](/docs/new-relic-solutions/observability-maturity/introduction)ユースケースを決定します。通常、ほとんどの組織は[サービスレベル管理](/docs/new-relic-solutions/observability-maturity/uptime-performance-reliability/optimize-slm-guide)から開始しますが、ビジネスの焦点に基づいて、他のユースケースが優先される場合があります。
+  </Collapser>
+
+  <Collapser
+    id="step7"
+    title="7. オブザーバビリティギルドメンバーの採用"
+  >
+    立ち上げにおけるこの最終段階は最も重要であり、ギルドメンバーなしではOCoEは成功しません。しかし、ギルドメンバーは自発的な活動を行う必要があるため、このプロセスではOCoEの成功と利点を説明し、それをより多くのステークホルダーにアピールすることです。
+  </Collapser>
+</CollapserGroup>
+
+### コラボレーションチャネル [#coe-collab-channels]
+
+<img
+  title="OCoe channels"
+  alt="OCoe channels"
+  src={omaCoeChannels}
+/>
+
+OCoEに最適なコラボレーションツールを決定したら、定期的な[クリニック](#coe-clinic)と[コラボレーションチャネル](#coe-channels)を設定することをお勧めします。
+
+### New Relicクリニック [#coe-clinic]
+
+New Relicクリニックは、OCoEコアチームが質問に答えたり、情報を共有したり、実務担当者と問題に対処するための定期的な公開セッションです。
+
+このセッションの一般的な議題は、以下になります。
+
+* ヘルプとサポート
+* プラットフォームの更新
+* ベストプラクティスの共有
+* デモと事例
+
+一般的な出席者には、以下が含まれます。
+
+* コアチーム（コーディネーター）
+* ギルドの中心的ユーザー
+* 実務担当者
+
+### メッセージングチャネル [#coe-channels]
+
+* **#help-newrelic**：New Relicのすべてのユーザーが質問し、知識を共有したり、ヘルプを得たりするためのチャネル。
+
+  このチャネルの一般的なメンバーには、以下が含まれます。
+
+  * すべてのオブザーバビリティ実務担当者
+  * ギルドの中心的ユーザー（積極的なサポートを提供）
+  * コアチーム（積極的なサポートを提供）
+
+* **#core-newrelic **：コアチームとNew Relic CSSが自由に話し合い、イシューや問題をエスカレーションするためのチャネル。
+
+  このチャネルの一般的なメンバーには、以下が含まれます。
+
+  * OCoEコアチーム
+  * ギルドの中心的ユーザー
+  * New Relic CSM / SA / TAM
+
+### ナレッジベース [#coe-knowledge-base]
+
+<img
+  title="OCoe knowledge base"
+  alt="OCoe knowledge base"
+  src={omaCoeKnowledgeBase}
+/>
+
+ナレッジベースは、実務担当者が基準、設定、事例、コードスニペット、クイックスタートガイド、その他の関連資料を見つけるための単一の場所を提供します。これらは、組織のNew Relic設定とオブザーバビリティのベストプラクティスの実装に焦点を当てています。New Relicのドキュメントと学習ツールへのリンクを提供し、セルフパスの有効化とオンボーディングをサポートします。
+
+ナレッジベースを浸透させるため、New Relicではスターターキットを用意し、OCoEをすぐに開始することを目的とした独自のwikiのようなナレッジベースを構築できるようにします。wikiスケルトンは、アカウント情報からクイックスタートのリファレンスガイドまで、ナレッジベースの多くの領域をカバーする多数のマークダウンページで構成されています。
+
+[Github](https://github.com/newrelic/newrelic-ocoe-launch-pad)でナレッジベースを見つけることができます。ここでは、ニーズに合わせてコンテンツを複製してカスタマイズできます。
+
+## ステージ2：継続的なサポート [#coe-stage2]
+
+OCoEのフレームワークが稼働したら、コンテンツを最新に保ち、目標に見合ったフレームワークを維持する必要があります。これを実現するために、New Relicは4つの主要分野で継続的なサポートを提供して、OCoEから最大限の価値を引き出します。
+
+<CollapserGroup>
+  <Collapser
+    id="support-documentation"
+    title="1. サポートとドキュメント（すべてのユーザーが利用可）"
+  >
+    * New Relicの設定、インテグレーション、使用に関するあらゆる側面のヘルプに関するテクニカルサポートチケットは、[https://support.newrelic.com](https://support.newrelic.com)で利用できます。
+    * New Relic製品のすべての側面に関する包括的なドキュメントと、オブザーバビリティのベストプラクティスは、[https://docs.newrelic.com](https://docs.newrelic.com)で入手できます。
+  </Collapser>
+
+  <Collapser
+    id="nru-training"
+    title="2. New Relic University（NRU）とトレーニング（すべてのユーザーが利用可）"
+  >
+    * New Relicのオブザーバビリティプラットフォーム全体と、New Relic Universityのインストラクターが提供するすべての製品を対象とした複数日のイネーブルメントコース。
+    * New Relic University（NRU）トレーニングプログラムによるマイペースコースとウェビナー。
+    * 学習トラックは、[learn.newrelic.com](https://learn.newrelic.com/)で入手できます。
+  </Collapser>
+
+  <Collapser
+    id="updates-enablement"
+    title="3. 機能の更新と有効化（New Relicカスタマーサクセスチーム主体）"
+  >
+    * プラットフォームの新しい部分とあまり使用されていない部分の説明とデモンストレーション。
+    * ロードマップと今後の製品リリース。
+    * New Relic製品管理に関する技術的な詳細
+  </Collapser>
+
+  <Collapser
+    id="recurring-meeting"
+    title="4. OCoEの近況報告（定期ミーティング予定）"
+  >
+    **アジェンダ：**
+
+    * 進捗状況の更新
+    * セッションおよびエンゲージメント計画
+    * サクセスストーリー
+    * プラットフォームの更新
+    * サポートレビュー
+
+    **出席者：**
+
+    * New Relic CSM/SA/TAM
+    * カスタマーコアチーム
+  </Collapser>
+</CollapserGroup>
+
+## 結論 [#conclusion]
+
+この文書に概説されているガイダンスの一部またはすべてを実施することで、オブザーバビリティの実践を中心としたコラボレーション文化を創り出すための重要な要素を整備することができます。オブザーバビリティに関する情熱を育み、強力な専門知識を身につける環境と共に、以下の改善に沿ったビジネス上のメリットも提供します。
+
+* 運用効率
+* 稼働時間
+* パフォーマンスと信頼性
+* カスタマーエクスペリエンス
+* イノベーションと成長
+
+OCoEは、今日の複雑な最新アプリケーションアーキテクチャの開発と運用に不可欠なスキルとベストプラクティスの発展と維持を支援します。

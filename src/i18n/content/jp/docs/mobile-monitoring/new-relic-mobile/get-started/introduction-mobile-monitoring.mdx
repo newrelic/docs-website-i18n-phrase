@@ -1,0 +1,119 @@
+---
+title: Mobileモニタリングの概要
+tags:
+  - Mobile monitoring
+  - New Relic Mobile
+  - Get started
+metaDescription: Use New Relic's mobile monitoring capabilities to manage the performance of your iOS and Android apps and your customers' overall digital experience.
+translationType: human
+---
+
+import mobileCrashAnalysisWorkflow from 'images/mobile_diagram_crash-analysis-workflow.webp'
+
+import mobileSummary from 'images/mobile_screenshot-full_summary.webp'
+
+import mobileCrashAnalysis from 'images/mobile_screenshot-full_crash-analysis.webp'
+
+import mobileNextSteps from 'images/mobile_diagram_next-steps.webp'
+
+New Relicのモバイルモニタリング機能により、[Android](/docs/mobile-monitoring/new-relic-mobile-android/get-started/introduction-new-relic-mobile-android)、[iOS](/docs/mobile-monitoring/new-relic-mobile-ios/get-started/introduction-new-relic-mobile-ios)、またはハイブリッドモバイルアプリケーションのパフォーマンスとクラッシュのトラブルシューティングをより詳細に可視化することができます。モバイルモニタリングを使用するとアプリのユーザーエクスペリエンスの向上や、HTTPとネットワークのパフォーマンスを調べて、バックエンドチームとより効果的に連携できます。
+
+簡単なインストールフローに従うと、モバイル環境に合わせたモバイルモニタリングの設定が可能になります。
+
+## アプリを作成してエージェントをインストールする [#install]
+
+開始するには、プラットフォーム固有のページを選択します。
+
+<DocTiles>
+  <DocTile
+    path="/docs/mobile-monitoring/new-relic-mobile-android/get-started/introduction-new-relic-mobile-android"
+    title="Android"
+  />
+
+  <DocTile
+    path="/docs/mobile-monitoring/new-relic-mobile-ios/get-started/introduction-new-relic-mobile-ios"
+    title="iOS"
+  />
+
+  <DocTile
+    path="/docs/mobile-monitoring/new-relic-monitoring-react-native/monitor-your-react-native-application"
+    title="React Native"
+  />
+
+  <DocTile
+    path="/docs/mobile-monitoring/new-relic-mobile-flutter/monitor-your-flutter-application"
+    title="Flutter"
+  />
+
+  <DocTile
+    path="/docs/mobile-monitoring/new-relic-mobile-ionic-capacitor/get-started/introduction-new-relic-ionic-capacitor"
+    title="Capacitor"
+  />
+
+  <DocTile
+    path="/docs/mobile-monitoring/new-relic-mobile-cordova-phonegap/get-started-with-cordova-monitoring"
+    title="Cordova"
+  />
+
+  <DocTile
+    path="/docs/mobile-monitoring/new-relic-mobile-maui-dotnet/monitor-your-net-maui-application"
+    title=".NET MAUI"
+  />
+
+  <DocTile
+    path="/docs/mobile-monitoring/new-relic-mobile-xamarin/monitor-your-xamarin-application"
+    title="Xamarin"
+  />
+</DocTiles>
+
+エージェントをインストールしたら、モバイルモニタリングを使用する目的を検討します。
+
+## モバイルモニタリングをクラッシュ分析のツールとして使用する [#crash-analysis]
+
+<CollapserGroup>
+  <Collapser
+    id="alert"
+    title="1. クラッシュに関するアラート通知を受信する"
+  >
+    ユーザーのアプリがクラッシュした際に、モバイルデバイスで直接アラート通知を受信するように[アラートを設定します](/docs/mobile-monitoring/new-relic-mobile/get-started/mobile-monitoring-alert-information/#conditions)。アプリのパフォーマンスの概要は[概要](/docs/mobile-monitoring/mobile-monitoring-ui/mobile-app-pages/mobile-apps-overview-page)ページで確認できます。ここでは、特定のアプリのバージョンと[時間範囲](/docs/query-your-data/explore-query-data/dashboards/manage-your-dashboard/#dash-time-picker)で関連データをフィルタリングできます。
+
+    <img
+      title="New Relic: Mobile summary"
+      alt="New Relic: Mobile summary"
+      src={mobileSummary}
+    />
+
+    <figcaption>
+      モバイル**概要**ページを使用して、クラッシュしたAndroidバージョンにフィルタを適用する例。
+    </figcaption>
+  </Collapser>
+
+  <Collapser
+    id="crash-analysis"
+    title="2. クラッシュ分析を使用してエラーを特定する"
+  >
+    モバイル**概要**ページの**クラッシュ**チャートのタイトルをクリックします。[**クラッシュ分析**ページ](/docs/mobile-monitoring/mobile-monitoring-ui/crashes/crash-analysis-group-filter-your-crashes)が開き、同じタイムフレームとバージョンフィルターが表示されます。クラッシュタイプを確認してクラッシュに関するデータを観察し、例外、場所、エラーメッセージを調べます。また、スタックトレース、インタラクショントレイル、イベントトレイルを調べて、ユーザーが影響を受けている場所を把握することもできます。このデータを使用すると、エラーを迅速に発見して修正し、アプリのパフォーマンスを回復できます。
+
+    <img
+      title="New Relic: Mobile crash analysis"
+      alt="New Relic: Mobile crash analysis"
+      src={mobileCrashAnalysis}
+    />
+
+    <figcaption>
+      **Crash analysis**ページを使用して、例外、ロケーション、エラーメッセージを調査し、新しいリリースのクラッシュの原因を追跡する例。
+    </figcaption>
+  </Collapser>
+</CollapserGroup>
+
+## アプリのパフォーマンスを向上させる機会を発見する [#speed-performance]
+
+* [ダッシュボード](/docs/dashboards/new-relic-one-dashboards/get-started/introduction-new-relic-one-dashboards)を構築し、クエリ実行、可視化、パフォーマンスデータを共有。
+* [ハンドルされた例外](/docs/mobile-monitoring/mobile-monitoring-ui/crashes/introduction-mobile-handled-exceptions)を特定し、ワークフローを効率化。
+* [クラッシュプロファイル](/docs/mobile-monitoring/mobile-monitoring-ui/crashes/crash-analysis-group-filter-your-crashes)と[HTTPプロファイル](/docs/mobile-monitoring/mobile-monitoring-ui/network-pages/mobile-http-error-profiles-find-error-causes)を使用して、セッション、デバイス、地理的位置、オペレーティングシステム、キャリア、リクエスト、レスポンスなどのトレンドを確認。
+* 実行時間、エラーなどに対する[アラート通知](/docs/mobile-monitoring/new-relic-mobile/getting-started/alert-information-new-relic-mobile)を設定。
+* [カスタムアトリビュートとイベント](/docs/insights/insights-data-sources/custom-events/insert-custom-events-attributes-mobile-data)を定義して、組織にとって最も重要なモバイルデータに関する追加の特定詳細を取得。
+
+## バックエンドの問題を監視する [#backend]
+
+モバイルモニタリングUIの[ネットワークページ](/docs/mobile-monitoring/mobile-monitoring-ui/network-pages)を使用すると、HTTPリクエスト、エラー、その他のネットワークの問題から浮上する問題を特定できます。また、[データをクエリ](/docs/using-new-relic/data/understand-data/query-new-relic-data)したり、バックエンドAPI開発者などの関連チームと共有するカスタム<InlinePopover type="dashboards"/>を作成したりすることもできます。

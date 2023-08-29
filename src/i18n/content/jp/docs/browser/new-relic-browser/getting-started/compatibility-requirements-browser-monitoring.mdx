@@ -1,0 +1,312 @@
+---
+title: ブラウザモニタリングの互換性と要件
+tags:
+  - Browser
+  - Browser monitoring
+  - Getting started
+metaDescription: Browser monitoring agent compatibility and requirements.
+translationType: machine
+---
+
+ブラウザモニタリングには、 [厳重なセキュリティ対策](/docs/browser/new-relic-browser/performance-quality/security-new-relic-browser) が施されており、ブラウザモニタリング機能を備えた堅牢なスタンドアロン製品を提供しています。ブラウザエージェント [をインストールする前に、お使いのシステムが以下の要件を満たしていることを確認してください。](/docs/browser/new-relic-browser/getting-started/adding-apps-new-relic-browser)
+
+[](/docs/browser/new-relic-browser/getting-started/adding-apps-new-relic-browser)
+
+[ブラウザ監視エージェントを試してみませんか？ ](/docs/browser/new-relic-browser/getting-started/adding-apps-new-relic-browser)[New Relicアカウントを作成して](https://newrelic.com/signup)ください...それは永遠に無料です！クレジットカードは必要ありません。
+
+## 基本要件 [#requirements]
+
+ブラウザにデータを報告するためには、アプリケーションが少なくとも2つの基本的な要件を満たす必要があります。
+
+1. アプリケーションへのトラフィックは、ブラウザのJavaScriptコードを読み込んで実行し、クッキーを設定できるクライアントからのものでなければなりません。
+2. アプリケーションにアクセスするクライアントは、HTTP リクエストを通じて New Relic にデータを送信できる必要があります。HTTPS は、より高度なブラウザ監視機能に必要です。
+
+<Callout variant="important">
+  切断リストを購読しているブラウザや、AdBlock などのコンテンツフィルタリング拡張機能を使用しているブラウザでは、New Relic にデータを送信できない場合があります。例えば、 [Enhanced Tracking Prevention disconnect list](https://disconnect.me/trackerprotection/blocked) を [Mozilla Firefox 69.0 以上](https://www.mozilla.org/en-US/firefox/69.0/releasenotes/) で使用している場合、デフォルトの設定を変更する必要があります。
+</Callout>
+
+一般的なブラウザアプリケーションのほとんどは、これらの要件を満たしています。しかし、制限された環境下にあるブラウザアプリケーションでは、New Relic へのデータ報告が困難な場合があります。
+
+* ハイブリッド・モバイル・アプリケーション
+* POS端末や家電製品などの特殊なハードウェアにインストールされるアプリケーション
+
+詳細については、 [instrumentation for browser monitoring](/docs/browser/new-relic-browser/page-load-timing-resources/instrumentation-browser-monitoring) のドキュメントを確認し、 [エンドユーザーのネットワークアクセス](/docs/browser/new-relic-browser/troubleshooting/troubleshooting-browser-monitoring-installation#manual_network_access) を確認してください。
+
+## 対応ブラウザ [#browser-types]
+
+ブラウザ エージェントは、次のブラウザ バージョンを公式にサポートしています。
+
+* [Chrome](https://www.google.com/chrome/) ([以前の 10 バージョン](https://browsersl.ist/#q=last+10+chrome+versions))
+* [Safari](https://www.apple.com/safari/) ([以前の 10 バージョン](https://browsersl.ist/#q=last+10+safari+versions))
+* [Firefox](https://www.mozilla.org/firefox/) ([以前の 10 バージョン](https://browsersl.ist/#q=last+10+firefox+versions))
+* [エッジ](https://www.microsoft.com/edge) ([以前の 10 バージョン](https://browsersl.ist/#q=last+10+edge+versions))
+
+インストルメンテーションおよび特定の機能は、他のブラウザーまたはバージョンと互換性がある場合があります。
+
+ユーザー インターフェイスは、 [New Relic のサポートされているブラウザー バージョン](/docs/data-analysis/user-interface-functions/view-your-data/supported-browsers-new-relics-ui)と互換性があります。
+
+<table>
+  <thead>
+    <tr>
+      <th style={{ width: "200px" }}>
+        **例外**
+      </th>
+
+      <th>
+        **コメントコメント**
+      </th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <tr>
+      <td id="paint-timings">
+        塗装のタイミング
+      </td>
+
+      <td>
+        `BrowserInteraction` 、 `PageView` 、および[`PageViewTiming`](/docs/browser/new-relic-browser/page-load-timing-resources/pageviewtiming-async-or-dynamic-page-details)イベントの[`firstPaint`](/attribute-dictionary/browserinteraction/firstpaint)および[`firstContentfulPaint`](/attribute-dictionary/browserinteraction/firstcontentfulpaint)属性は、以下との[み互換性があり](https://developer.mozilla.org/en-US/docs/Web/API/PerformancePaintTiming#Browser_compatibility)ます。
+
+        * デスクトップおよびモバイルのChrome 60以上（AndroidウェブビューおよびChrome for Android）
+        * デスクトップ用Opera 47以上
+        * Opera 44以上（Androidモバイル用
+        * サムスンの携帯電話向けインターネット
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+        AJAX
+      </td>
+
+      <td>
+        [AJAXのタイミング機能](/docs/browser/new-relic-browser/dashboard-details/ajax-dashboard) では利用できません。
+
+        * iPhone/iPad向けChrome
+        * IE 7および8
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+        `PageAction` イベント
+      </td>
+
+      <td>
+        [`PageAction`イベント](/docs/insights/new-relic-insights/adding-querying-data/inserting-custom-events-attributes-insights-javascript-api)には、クロスドメイン`XMLHttpRequests`を完全にサポートするブラウザが必要です。Internet Explorerバージョン9以下では、 `PageAction`イベントを記録できません。[データのクエリの詳細をご覧ください](/docs/using-new-relic/data/understand-data/query-new-relic-data)。
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+        セッション・トレース
+      </td>
+
+      <td>
+        [セッショントレース](/docs/browser/new-relic-browser/dashboard-details/session-traces-exploring-webpages-life-cycle) は、 [Resource Timing Specification](http://www.w3.org/TR/resource-timing/) をサポートしているブラウザからのみ報告されます。
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+        SHA-256
+      </td>
+
+      <td>
+        New Relic は [SHA-256](https://support.globalsign.com/customer/portal/articles/1499561-sha-256-compatibility) と互換性のあるブラウザのみをモニターすることができます。
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+<Callout variant="important">
+  Cookieでブラウザ監視を使用する場合、New RelicのCookieはサイト上のサードパーティのCookieであり、訪問者が使用する特定のWebブラウザに保存または機能しない場合があります。サードパーティのCookieとの互換性の詳細については、該当するブラウザのWebサイトを参照してください。
+</Callout>
+
+## APMエージェント [#apm-agents]
+
+アプリの [ブラウザ監視を展開する](/docs/browser/new-relic-browser/getting-started/adding-apps-new-relic-browser) 1 つの方法は、APM エージェントの 1 つを使用することです。
+
+すでに APM によって監視されているアプリのブラウザをデプロイしている場合は、APM エージェントのバージョンがブラウザ監視をサポートしていることを確認してください。
+
+* [Go](/docs/release-notes/agent-release-notes/go-release-notes): バージョン2.5.0以上
+* [Java](/docs/release-notes/agent-release-notes/java-release-notes): バージョン3.4.0以上
+* [.NET](/docs/release-notes/agent-release-notes/net-release-notes): バージョン2.20.25.0以上
+* [Node.js](/docs/release-notes/agent-release-notes/nodejs-release-notes): バージョン1.4.0以上
+* [PHP](/docs/release-notes/agent-release-notes/php-release-notes): バージョン4.4.5.35以上
+* [Python](/docs/release-notes/agent-release-notes/python-release-notes): バージョン 2.10.1.9 以上
+* [Ruby](/docs/release-notes/agent-release-notes/ruby-release-notes): Version 3.7.0.177 以上
+
+## サポートされているフレームワークとライブラリ [#frameworks-and-libraries]
+
+ブラウザ エージェントは、多くの一般的なフロントエンド フレームワークとライブラリを使用するサイト上のデータを収集します。ブラウザ エージェントは、他のライブラリやフレームワークによってラップまたは変更される可能性がある、低レベルの JavaScript オブジェクトおよびメソッドを監視します。その結果、収集される詳細レベルはフレームワークごとに異なる可能性があり、ネイティブ JavaScript メカニズムを変更するライブラリと競合が発生する可能性があります。
+
+<table>
+  <thead>
+    <tr>
+      <th style={{ width: "150px" }}>
+        互換性の例外
+      </th>
+
+      <th>
+        コメントコメント
+      </th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <tr>
+      <td>
+        Zone.js
+      </td>
+
+      <td>
+        AngularJSを使用していて、 [SPA監視機能](/docs/browser/single-page-app-monitoring/get-started/welcome-single-page-app-monitoring)を使用したい場合は、Zone.jsバージョン0.6.18から0.6.24はブラウザーと互換性がないことに注意してください。いずれの場合も、エラーを回避するために、ブラウザエージェントをZone.jsの前にロードする**必要**があります。
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+        Cypress.io（サイプレス・アイオー
+      </td>
+
+      <td>
+        サイプレスでテストを実行すると、ブラウザはリクエストの`open` }メソッドと`send`メソッドを適切にインストルメントできません。これにより、次のエラーがスローされます。
+
+        ```
+        Cannot set property 'status' of undefined
+        ```
+
+        これは、コード内に存在するブラウザ エージェントを使用してテストを実行しているお客様にのみ影響します。本番アプリケーションは影響を受けません。
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+        html2pdf.js
+      </td>
+
+      <td>
+        このライブラリは、約束事の包み方が異なるため、弊社の [Pro+SPA エージェント](/docs/browser/browser-monitoring/installation/install-browser-monitoring-agent#agent-types) とは互換性がありません。このライブラリを使用する場合は、 [Pro エージェントタイプ](/docs/browser/browser-monitoring/installation/install-browser-monitoring-agent#agent-types) を選択することをお勧めします。
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+        ムーツール
+      </td>
+
+      <td>
+        ブラウザ エージェントは、 `1.6.0` より古い MooTools バージョン、または mootools 互換性レイヤーを含むバージョンとは互換性がありません。MooTools から移行できない場合は、バージョン `1.6.0-nocompat`を使用することをお勧めします。
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+## シングルページアプリケーション（SPA）の監視 [#spa]
+
+[シングル ページ アプリ (SPA) の監視](/docs/browser/single-page-app-monitoring/get-started/add-apps-single-page-app-monitoring)に関連する機能を使用するには、アプリが次の要件を満たしている必要があります。
+
+### SPA: ブラウザエージェントのバージョン [#spa-browser-version]
+
+SPA モニタリングには [、ブラウザ エージェント バージョン 885 以降](/docs/release-notes/new-relic-browser-release-notes/browser-agent-release-notes)で利用可能な、SPA 固有のバージョンのブラウザ スニペットが必要です。このバージョンのエージェントはデフォルトで有効になっています。
+
+### SPA: ブラウザの種類 [#spa-browser-types]
+
+SPA モニタリングには、 [`addEventListener`ブラウザ API](https://developer.mozilla.org/en-US/docs/Web/API/EventTarget/addEventListener) と [Navigation Timing API](/docs/browser/new-relic-browser/browser-agent-apis/navigation-timing-api)が必要です。 両方の API は、Google Chrome、Mozilla Firefox、Apple Safari、Microsoft Internet Explorer (IE) バージョン 9 以降など、最新のすべてのブラウザーで利用できます。
+
+### SPA: フレームワーク要件 [#spa-framework]
+
+SPAインスツルメンテーションは、低レベルのブラウザAPIをラップして動作するため、フレームワークに依存しません。SPAインスツルメンテーションは、Angular、Backbone、Ember、Reactなど、ほとんどのSPAフレームワークと互換性があります。また、JSONPを使用したリクエストの計測も可能です。
+
+以下は、既知の互換性の問題です。
+
+* アプリケーションに AngularJS を使用しており、ブラウザの [SPA モニタリング](/docs/browser/single-page-app-monitoring/get-started/welcome-single-page-app-monitoring) の機能を使用したい場合、Zone.js のバージョン 0.6.18-0.6.24 は SPA エージェントとの互換性がありません。
+* html2pdf.jsライブラリは、SPAエージェントと互換性がありません。
+* Angular バージョン 12 から 14 には、インデックス HTML ソース内に含まれる個々のスクリプト要素のサイズに関する制限が含まれています。詳細については [、このトラブルシューティング ページ](/docs/browser/single-page-app-monitoring/troubleshooting/angular-truncated-copy-paste-snippet) を参照してください。
+* Next.JS には、バージョン 13.3.2-canary.2 以降、既知の非互換性があります。アプリルーターを使用すると、ページ上のリンクが機能しなくなる可能性があります。詳細については [、このトラブルシューティング ページ](/docs/browser/single-page-app-monitoring/troubleshooting/nextjs-app-router-links-broken) を参照してください。
+
+### SPA: ハッシュ フラグメントのセキュリティ [#hash-fragments]
+
+ルート変更 URL からハッシュ フラグメントを収集して保存します。ハッシュを使用してプライベート データや機密データを渡す場合、そのデータは New Relic アカウント ユーザーに表示される可能性があります。 [データ収集とレポートのセキュリティ](/docs/browser/new-relic-browser/performance-quality/security-new-relic-browser)に関するブラウザのガイドラインに従ってください。
+
+## コンテンツ・セキュリティ・ポリシー（CSP）の考慮事項 [#csp]
+
+正確なブラウザ パフォーマンス メトリクスを取得するために、ブラウザ監視では小さなインライン [JavaScript スニペット](/docs/browser/new-relic-browser/page-load-timing/instrumentation-page-load-timing)を使用する必要があります。New Relic は、クロスサイト スクリプティング (XSS) やその他の潜在的な脆弱性を防ぐために、インライン JavaScript を注意深くレビューします。
+
+[Content Security Policy Level 2](https://www.w3.org/TR/CSP2/) インラインスクリプトなど、許可されるJavaScriptの種類に制限を加えています。また、ページロード時にスクリプトをロードできるドメインを制限します。
+
+<Callout variant="important">
+  お客様のWebサイトでサードパーティがホストするJavaScriptの実行が許可されていない場合は、ブラウザ監視エージェントをインストールするために、組織の標準的な手順でCSPの例外を申請する必要があります。
+</Callout>
+
+CSPの例外を申請する場合は、組織の標準的な手順に従って、ウェブまたはセキュリティ・チームに連絡してください。
+
+ブラウザのJavaScriptエージェントを正しく実行するには、次のCSP例外が必要です。または、これらの例外をすべてフォールバック`default-src`ディレクティブに追加することもできます（ `script-src`および`connect-src`の代わりに）。
+
+<Callout variant="important">
+  古いブラウザでは、 `image-src`または画像のリクエストは、考慮すべき例外の可能性があります。
+</Callout>
+
+<table>
+  <thead>
+    <tr>
+      <th style={{ width: "300px" }}>
+        CSPの例外
+      </th>
+
+      <th>
+        コメントコメント
+      </th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <tr>
+      <td>
+        `unsafe-inline`
+      </td>
+
+      <td>
+        `script-src`ディレクティブまたはフォールバック`default-src`ディレクティブに追加します。これは、エージェントがインラインスクリプトを含めることによってインストールされるために必要です。
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+        `https://js-agent.newrelic.com`
+      </td>
+
+      <td>
+        `script-src`ディレクティブまたはフォールバック`default-src`ディレクティブに追加します。これは、エージェントが必要とする追加のスクリプトファイルがホストされる場所です。
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+        `*.nr-data.net`
+      </td>
+
+      <td>
+        エージェントは`nr-data.net`のサブドメインにペイロードを送信しようとしますが、これはアカウント タイプによって異なります。`*.nr-data.net`が要件に対して包括的すぎる場合は、個々のサブドメインを追加する必要があります。
+
+        * 米国ベースのアカウント:
+
+          * `https://bam.nr-data.net`
+          * `https://bam-cell.nr-data.net`
+
+        * EU ベースのアカウント:
+
+          * `https://bam.eu01.nr-data.net`
+
+        * FedRAMP 準拠のアカウント:
+
+          * `https://gov-bam.nr-data.net`
+
+        * `script-src`ディレクティブまたはフォールバック`default-src`ディレクティブに追加します。これは、エージェントが収集したデータを送信する場所です。このURLへの呼び出しの1つはJSONP呼び出しです。これは、URLがスクリプトソースとして許可されている必要があることを意味します。
+
+        * `connect-src`ディレクティブまたはフォールバック`default-src`ディレクティブに追加します。`connect-src`ディレクティブは、スクリプトが呼び出すことができるURLに影響します（たとえば、XMLHttpRequestインターフェイスを使用）。特にこのディレクティブに関するCSP制限がある場合は、このURLを例外として追加してください。
+      </td>
+    </tr>
+  </tbody>
+</table>

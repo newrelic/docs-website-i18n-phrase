@@ -1,0 +1,124 @@
+---
+title: モバイル監視の設定を構成する
+tags:
+  - Mobile monitoring
+  - New Relic Mobile
+  - Maintenance
+metaDescription: 'For your New Relic-monitored mobile apps, under the Settings tab there are options for editing various settings.'
+translationType: machine
+---
+
+New Relic モバイル監視 UI の **Settings** \[設定] の下に、New Relic で監視されているモバイル アプリの変更、アラート条件の編集、およびその他の設定の編集のためのオプションがあります。アプリのデータを認証するには、 [アプリケーション トークンを表示します](/docs/mobile-monitoring/new-relic-mobile/maintenance/configure-settings-for-mobile-monitoring/#application-token)。
+
+<Callout variant="important">
+  この機能へのアクセスは、ユーザーの権限によって異なります。
+</Callout>
+
+これらの設定を構成するには、 **[one.newrelic.com > All capabilities](https://one.newrelic.com/all-capabilities) > Mobile > (モバイル アプリを選択) > Settings**に移動します。
+
+<table>
+  <thead>
+    <tr>
+      <th width={350}>
+        **あなたがしたい場合は...**
+      </th>
+
+      <th>
+        **これを選択**
+      </th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <tr>
+      <td>
+        モバイルアプリの名称変更
+      </td>
+
+      <td>
+        **アプリケーション**
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+        HTTPステータスコードのエラー率、ネットワーク障害のエラー率、応答時間の「注意」と「重要」のアラート条件を変更する
+      </td>
+
+      <td>
+        **アラート条件**
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+        [アラート通知を](/docs/mobile-monitoring/new-relic-mobile/get-started/mobile-monitoring-alert-information)オンまたはオフにする
+      </td>
+
+      <td>
+        **アラート条件**
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+        モバイルモニタリングのインストール
+      </td>
+
+      <td>
+        **インストール**
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+        [ホスト名をブロックまたは許可し、ステータス コードのルールを作成し、ホスト名のエイリアスを作成します](/docs/mobile-monitoring/new-relic-mobile/maintenance/configure-network-request-settings)
+      </td>
+
+      <td>
+        **通信網**
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+        モバイルSDKをアップグレードしてお使いください。
+      </td>
+
+      <td>
+        **アップグレード**
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+        モバイルアプリの認証トークンの表示
+      </td>
+
+      <td>
+        **アプリケーション** または **インストール**
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+## アプリケーショントークンを表示する [#application-token]
+
+[データインジェストキー](/docs/apis/intro-apis/new-relic-api-keys) の一つは、当社のモバイル監視アプリケーショントークンです。お客様が監視する各モバイルアプリには、米国とEUのデータセンターの両方で、そのアプリに固有の40文字の16進数文字列が自動的に割り当てられます。このトークンは、お客様のアプリのデータを認証するために必要です。
+
+アプリケーショントークンを表示するには
+
+1. **[one.newrelic.com > All Capabilities](https://one.newrelic.com/all-capabilities)**に移動し、 **Mobile**クリックして、監視対象のアプリを選択します。
+2. **Application** または **Installation** を選択します。
+
+<Callout variant="tip">
+  モバイルアプリから報告されたデータは、アプリケーショントークンに基づいて、名前の付いたアプリに結び付けられます。単一のアプリ・トークンを持つすべてのアプリは、モバイルデバイスにインストールされたときに、アプリの名前に関係なく、当社のモバイルモニタリングUIの同じ場所にレポートされます。iOS版とAndroid版を分けるために、プラットフォームごとに異なるアプリケーショントークンを使用することをお勧めします。
+</Callout>
+
+## モバイル エージェントの構成 [#agent-configure]
+
+モバイル インストルメンテーションをさらにカスタマイズするには、API 呼び出しを使用してエージェントを直接構成できます。ここではいくつかの例を示します。
+
+* [モバイルモニタリングにカスタムデータを追加](/docs/mobile-monitoring/new-relic-mobile/maintenance/add-custom-data-new-relic-mobile)
+* [Androidの設定と機能フラグ](/docs/mobile-monitoring/new-relic-mobile-android/install-configure/android-agent-configuration-feature-flags)
+* [iOSの設定と機能フラグ](/docs/mobile-monitoring/new-relic-mobile-ios/api-guides/ios-agent-configuration-feature-flags)

@@ -1,0 +1,64 @@
+---
+title: Devices page
+tags:
+  - Mobile monitoring
+  - Mobile monitoring UI
+  - Mobile app pages
+metaDescription: 'Compare your mobile app''s performance by form factor (iPhone vs iPad, for example), OS, manufacturer, etc.'
+redirects:
+  - /docs/mobile-apps/devices-dashboard
+  - /docs/mobile-monitoring-ui/devices-dashboard
+  - /docs/mobile-monitoring/mobile-monitoring-ui/mobile-app-dashboards/devices-dashboard
+  - /docs/mobile-monitoring/mobile-monitoring-ui/mobile-app-dashboards/devices-page
+---
+
+import mobileDevicesSummary from 'images/mobile_screenshot-full_devices-summary.webp'
+
+import mobileDeviceDrilldown from 'images/mobile_screenshot-full_device-drilldown.webp'
+
+The Devices page for mobile monitoring provides performance details about the top devices using your mobile application, such as iPad, iPhone, iPod Touch, Android Tablet, etc. Charts compare the devices by:
+
+* Interaction time
+* HTTP request time
+* Error rates and network failures
+* Active user sessions
+
+From here you can drill down into details by a specific model (for example, iPhone 6, 6S, 7).
+
+## Viewing the Devices page [#devices_procedures]
+
+<img
+  title="screen mobile devices.png"
+  alt="screen mobile devices.png"
+  src={mobileDevicesSummary}
+/>
+
+<figcaption>
+  **[one.newrelic.com > All capabilities](https://one.newrelic.com/all-capabilities) > Mobile > (select an app) > App > Devices:** Use this page to view, sort, or drill down into detailed information about the top five types of devices using your mobile app, including interaction and HTTP request times, error rates, and active users.
+</figcaption>
+
+To view performance details about your users' mobile devices:
+
+1. Go to **[one.newrelic.com > All capabilities](https://one.newrelic.com/all-capabilities) > Mobile > (select an app) > App > Devices**.
+2. To select the mobile app versions or change the time period, use the **Versions** menu and [**time picker**](/docs/query-your-data/explore-query-data/dashboards/manage-your-dashboard/#dash-time-picker) below the New Relic menu bar.
+3. Optional: Select the **Sort by** and **Hide &lt; 1% throughput** options.
+4. To limit details to a specific device **type** (for example, iPad), select its name.
+
+## Viewing drill-down details [#details]
+
+To drill down into detailed information, use any of New Relic's standard [user interface functions](/docs/new-relic-solutions/new-relic-one/introduction-new-relic-platform). In addition:
+
+* To view a list of specific devices or models (for example, iPad mini, iPad Air, etc.), select the **type** (for example, iPad).
+* To view details for a specific device or model, select its name from the expanded list.
+* To view trace details a slow transaction (if available), select its link. For more information, see [Interactions page](/docs/mobile-monitoring/mobile-monitoring-ui/mobile-app-pages/interactions-page).
+* To return to the main Devices page, select the **Close** (**X**) button.
+
+<img
+  title="screen mobile devices drilldown.png"
+  alt="screen mobile devices drilldown.png"
+  src={mobileDeviceDrilldown}
+/>
+
+<figcaption>
+  **[one.newrelic.com > All capabilities](https://one.newrelic.com/all-capabilities) > Mobile > (select an app) > App > Devices > (select a device)**: This page provides drill-down details for the selected device, including http response time, network failures, active sessions, and slowest transaction traces (if available).
+</figcaption>

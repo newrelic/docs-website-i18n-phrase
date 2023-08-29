@@ -1,0 +1,94 @@
+---
+title: ログ管理を始めよう
+tags:
+  - Logs
+  - Log management
+  - Get started
+metaDescription: Connect your logs with your other telemetry and infrastructure data with the log management capabilities in New Relic.
+signupBanner:
+  text: Monitor and improve your entire stack. 100GB free. Forever.
+translationType: machine
+---
+
+import logsMainLogsUi from 'images/logs_screenshot-full_main-logs-ui.webp'
+
+アプリケーションがクラウドに移行するにつれて、マイクロサービス アーキテクチャはますます分散され、ログを監視する機能が不可欠になっています。New Relic は、高速でスケーラブルなログ管理プラットフォームを提供するため、ログを残りのテレメトリおよびインフラストラクチャ データと 1 か所で接続できます。
+
+当社のログ管理ソリューションは、アプリケーションとインフラストラクチャのパフォーマンス データ (イベント、エラー、トレースなど) をより詳細に可視化して、解決までの平均時間 (MTTR) を短縮し、本番インシデントを迅速にトラブルシューティングします。
+
+## 問題をより早く発見し、コンテキストスイッチを減らす [#logs-definition]
+
+<img
+  title="Screenshot of New Relic logs UI"
+  alt="Screenshot of New Relic logs UI"
+  src={logsMainLogsUi}
+/>
+
+<figcaption>
+  **[one.newrelic.com > All capabilities](https://one.newrelic.com/all-capabilities) > Logs**: メインのログ UI ページから、すべてのログを表示し、特定のテキストまたはその他の属性を含むログにフィルターをかけることができます。
+</figcaption>
+
+ログ管理は、ログデータを残りのアプリケーションおよびインフラストラクチャデータと接続する方法を提供します。ツールを切り替えることでコンテキストを失うことなく、問題の根本原因にすばやく到達できます。たとえば、次のことができます。
+
+* アプリとホストの問題のコンテキストでログを提供するNewRelicUI全体で関連データを取得します。
+* ログ UI を使用してログ データをさらに詳しく調べ、カスタム グラフ、ダッシュボード、アラートを作成します。
+* 瞬時にログを検索することができます。
+* 他のツールを切り替えずにパフォーマンスの問題をトラブルシューティングします。
+* すべてを一カ所に集めて視覚化する。
+
+## コストについて知りたいですか？ [#costs]
+
+ログを報告するコストを見積もりたいですか?[費用見積もりツール](https://newrelic.com/blog/nerdlog/estimate-data-cost)を使用します。また、New Relic ログ管理の使用を開始すると[、ログの取り込みを簡単に調整](/docs/data-apis/manage-data/manage-data-coming-new-relic)できることにも注意してください。
+
+## レポート ログ [#integrate-logs]
+
+ログ データを New Relic に転送するには、次のオプションの 1 つ以上を使用できます。
+
+* **私たちを使用してください <InlinePopover type="apm"/>ログを報告するエージェント。** デフォルトでは、当社の APM エージェントは 2 つのことを行います。ログにメタデータを追加することで、コンテキスト内のログ (プラットフォームのさまざまな関連場所でログ データを表示する機能) を提供し、ログを New Relic に転送します。これは、追加のサードパーティ ソリューションを必要とせずに、アプリケーション ログを簡単にレポートできるため、DevOps チームや小規模な組織に人気のあるオプションです。[APM ログの詳細をご覧ください。](/docs/apm/new-relic-apm/getting-started/get-started-logs-context)
+
+* **[インフラストラクチャ エージェントを使用して、ログを報告します](/docs/logs/forward-logs/forward-your-logs-using-infrastructure-agent)。** インフラストラクチャ エージェントを使用すると、アプリのログなど、ホストに存在するすべてのログをキャプチャできます。ログを報告するために APM エージェントを使用する場合と比較して、これは少し設定に時間がかかる場合がありますが、はるかに強力なオプション (たとえば、カスタム属性を収集する機能は使用できません) を提供します。
+
+  <InlinePopover type="apm"/>
+
+  エージェント）。
+
+* **サードパーティのログ サービスを使用します。**Amazon、Microsoft、Fluentd、Fluent Bit、Kubernetes、Logstash など、[他のログ サービスとの幅広い統合が](/docs/logs/forward-logs/enable-log-management-new-relic)あります。
+
+* **[Log API](/docs/logs/log-api/introduction-log-api/)または[TCP エンドポイント](/docs/logs/log-api/use-tcp-endpoint-forward-logs-new-relic)を使用してログをレポートします。**
+
+* **OpenTelemetry SDK を使用してアプリからログを** [OpenTelemetry Collector](/docs/more-integrations/open-source-telemetry-integrations/opentelemetry/best-practices/opentelemetry-best-practices-logs)に送信し、OTLP 経由で New Relic に転送できます。
+
+ログ転送オプションと特定の使用例の詳細については、 [Forward logs](/docs/logs/forward-logs/enable-log-management-new-relic)を参照してください。
+
+## UI でのログの表示と管理 [#find-data]
+
+New Relic でログを見つけるには:
+
+**[one.newrelic.com > All capabilities](https://one.newrelic.com/all-capabilities) > Logs**に移動します。UI でできることの詳細については、 [Logs UI](/docs/logs/ui-data/use-logs-ui) \[ログ UI]を参照してください。
+
+`Log`データ型を照会することもできます。NRQL クエリの簡単な例を次に示します。
+
+```sql
+SELECT * FROM Log
+```
+
+また、GraphQL 形式の API である NerdGraph を使用して[データをクエリ](/docs/apis/nerdgraph/examples/nerdgraph-nrql-tutorial)したり、[ログ管理を構成](/docs/apis/nerdgraph/examples/nerdgraph-log-parsing-rules-tutorial)したりすることもできます。
+
+## ユーザーアクセス [#requirements]
+
+ログ管理機能へのアクセスは、ユーザーのユーザー タイプによって異なります。詳細については、 [ユーザー タイプの機能](/docs/accounts/accounts-billing/new-relic-one-user-management/user-type#user-type-capabilities)を参照してください。
+
+ログ関連の権限は、いくつかの[ログ関連の機能](/docs/accounts/accounts-billing/new-relic-one-user-management/user-capabilities#logs)によって管理されます。
+
+## 次のステップ [#what-next]
+
+ログマネジメントソリューションを始める準備はできましたか？
+
+1. New Relicアカウントをまだお持ちでない場合は、[New Relicアカウントを新たに作成します](https://newrelic.com/signup)。永久無料です。
+2. [ログを報告するためのオプションの](#integrate-logs)1 つを設定します。
+3. エラー、分散トレース、ホストなど[、プラットフォーム全体の関連ログデータを調べます](/docs/apm/new-relic-apm/getting-started/get-started-logs-context#response-time-example)。
+4. すべてのログ、属性、パターン、ライブテール ロギング、およびクエリを通じて、簡単なワークフローとして[ログ UI](/docs/logs/ui-data/use-logs-ui)を使用します。アラートを追加し、データをクエリして、ダッシュボードを作成します。
+
+<Callout variant="tip">
+  Datadog を使用してログを監視していますが、New Relic の監視機能を無料で試してみたいですか?方法については [、Datadog からの移行方法に関するガイドを](/docs/journey-migration/migrating-from-dd/) ご覧ください。
+</Callout>

@@ -1,0 +1,266 @@
+---
+title: "Session traces: Explore a webpage's life cycle"
+metaDescription: For New Relic browser monitoring, the session traces feature lets you see a timeline of the technical and user-triggered events for a webpage's full life cycle.
+redirects:
+  - /docs/browser/new-relic-browser/dashboard-details/session-traces-exploring-webpages-life-cycle
+  - /docs/traces/viewing-browser-trace-details
+  - /docs/apm/traces/browser-traces/viewing-browser-trace-details
+  - /docs/browser/new-relic-browser/additional-standard-features/viewing-browser-trace-details
+  - /docs/browser/new-relic-browser/additional-standard-features/api-options-browser-traces
+  - /docs/traces/api-options-for-browser-traces
+  - /docs/apm/traces/browser-traces/api-options-browser-traces
+  - /docs/browser/new-relic-browser/browser-agent-apis/api-options-browser-traces
+  - /docs/features/browser-traces
+  - /docs/traces/browser-traces
+  - /docs/apm/traces/browser-traces/browser-traces
+  - /docs/browser/new-relic-browser/additional-standard-features/browser-traces
+  - /docs/browser/new-relic-browser/additional-standard-features/view-browser-trace-details
+  - /docs/browser/new-relic-browser/browser-pro-features/session-traces-exploring-webpages-life-cycle
+  - /docs/browser/new-relic-browser/browser-pro-features/session-traces-explore-webpages-life-cycle
+---
+
+import browserSessionTraceDetails from 'images/browser_screenshot-full_session-trace-details.webp'
+
+import browserSessionTraces from 'images/browser_screenshot-full_session-traces.webp'
+
+
+Our browser monitoring **Session traces** UI provides a detailed timeline of the load and interaction events during a webpage's full life cycle, for as long as ten minutes. After you select the session URL or session trace ID, you can use the detailed waterfall visualization and heat map overview to examine metrics and identify problems related to:
+
+* Page load timing
+* Individual asset loads
+* User interactions
+* AJAX requests
+* Callbacks
+* Errors and other events during the session
+
+## Identify problems and solutions [#benefits]
+
+<img
+  title="Session trace error details"
+  alt="A screenshot of error details in a browser session trace"
+  src={browserSessionTraces}
+/>
+
+<figcaption>
+  Go to **[one.newrelic.com](https://one.newrelic.com) > Browser > (select an app) > Session traces**: Here is an example of some of the wealth of information you can explore in a session trace.
+</figcaption>
+
+Session traces help you understand:
+
+<table>
+  <thead>
+    <tr>
+      <th style={{ width: "250px" }}>
+        Issues
+      </th>
+
+      <th>
+        Use session trace data to do this..
+      </th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <tr>
+      <td>
+        Backend problems
+      </td>
+
+      <td>
+        See how long it takes from when the request begins to when backend activity finishes and the DOM loading process begins.
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+        Page load timing issues
+      </td>
+
+      <td>
+        Explore data that helps you answer questions such as:
+
+        * What is your users' [page load](/docs/browser/new-relic-browser/page-load-timing-resources/page-load-timing-process) experience?
+        * How long does it take for DOM processing or AJAX requests to complete?
+        * Why is one page load slower than others?
+        * What is the context for individual events during a session?
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+        Core Web Vitals
+      </td>
+
+      <td>
+        Look at the timing segments for first input delay and largest contentful paint to identify performance issues affecting your Core Web Vitals scores.
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+        JavaScript events
+      </td>
+
+      <td>
+        Examine the sequence of [JavaScript](#slow-javascript-execution) and browser events to understand:
+
+        * Which ones take longer than others?
+        * When does each event occur?
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+        Errors
+      </td>
+
+      <td>
+        Sort or filter the errors to see what patterns emerge. For example, you can check whether errors increase based on:
+        
+        * Browser type (Google Chrome, Mozilla Firefox, etc.)
+        * A specific device type (desktop, tablet, mobile)
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+By connecting performance to user experience and interactions to performance, the ability to see all events in the user's session can help you pinpoint problem areas and identify solutions. You can also create a permalink to share this information with others.
+
+## Get started [#requirements]
+
+To use our session traces feature, make sure that you are using the [Pro or Pro+SPA agent type](/docs/browser/browser-monitoring/installation/install-browser-monitoring-agent/#agent-types) for browser monitoring. If you're using [multiple names for an app](/docs/agents/manage-apm-agents/app-naming/use-multiple-names-app), session traces will only report to the [most specific application](/docs/agents/manage-apm-agents/app-naming/use-multiple-names-app#most-least-specific).
+
+Browser monitoring randomly captures traces only from browsers that support the [Resource Timing API](https://www.w3.org/TR/resource-timing/). Session traces are randomly sampled and stored at a rate of 90/hour. You can page through up to 500 traces at a time.
+
+## Select a session trace [#index]
+
+<img
+  title="browser_sessiontraces_overview.png"
+  alt="browser_sessiontraces_overview.png"
+  src={browserSessionTraceDetails}
+/>
+
+<figcaption>
+  **[one.newrelic.com > All capabilities](https://one.newrelic.com/all-capabilities) > Browser > (select an app) > Session traces**: Search by URL or session trace ID, or sort any column, then click the link to use the interactive session trace details.
+</figcaption>
+
+To select a specific session trace:
+
+1. Go to **[one.newrelic.com > All capabilities](https://one.newrelic.com/all-capabilities) > Browser > (select a browser app) > Session traces**.
+2. To limit the index to a specific URL or session trace ID, use the search window.
+3. To look for other patterns, change the sort order on any column.
+4. Click the session trace link, then use the details page to drill down into detailed information.
+
+For deeper analysis, you can also query attributes such as [`session`](https://docs.newrelic.com/attribute-dictionary/?event=BrowserInteraction&attribute=session), [`sessionTraceId`](https://docs.newrelic.com/attribute-dictionary/?event=AjaxRequest&attribute=sessionTraceId), [`largestContentfulPaint`](https://docs.newrelic.com/attribute-dictionary/?event=PageViewTiming&attribute=largestContentfulPaint), etc. For more information, see our documentation about [browser monitoring event data](/docs/data-apis/understand-data/event-data/events-reported-browser-monitoring/) as well as our [data dictionary](https://docs.newrelic.com/attribute-dictionary/?dataSource=Browser+agent).
+
+## Session segment definitions [#segment-defs]
+
+For apps that have been [deployed using the copy/paste method](/docs/browser/new-relic-browser/installation-configuration/adding-apps-new-relic-browser) in New Relic, browser monitoring includes web app and queue time in `Network` time as part of the [page load timing process](/docs/browser/new-relic-browser/page-load-timing-resources/page-load-timing-process). This is because browser monitoring relies on the server-side agent to pass the application values to the browser agent through auto-injection.
+
+You can view detailed information about how this backend time breaks down from the browser's point of view. The session traces report on all the network related events available, so you can see on a case-by-case basis how the browser spends time on DNS lookups and other network events.
+
+Measurements for each segment indicate how long into a session that the segment ended. For example, if `Page load` is `6.9s`, this means the page load event completed 6.9 seconds after the request began.
+
+The following table describes each segment of the session trace, with a link to the data dictionary for more details about these attributes.
+
+<table>
+  <thead>
+    <tr>
+      <th style={{ width: "150px" }}>
+        Session segment
+      </th>
+
+      <th>
+        Description
+      </th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <tr>
+      <td>
+        [Backend](https://docs.newrelic.com/attribute-dictionary/?event=PageView&attribute=backendDuration)
+      </td>
+
+      <td>
+        The time from when the request began to when backend activity finished and DOM loading began.
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+        [DOM processing](https://docs.newrelic.com/attribute-dictionary/?event=PageView&attribute=domProcessingDuration)
+      </td>
+
+      <td>
+        The time from when the request began to when DOM processing finished.
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+        [Page load](https://docs.newrelic.com/attribute-dictionary/?event=BrowserInteraction)
+      </td>
+
+      <td>
+        The time from when the request began to when the page load event fired.
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+        [Waiting on AJAX](https://docs.newrelic.com/attribute-dictionary/?event=AjaxRequest)
+      </td>
+
+      <td>
+        The time from when the request began to when AJAX activity ended.
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+        [First interaction](https://docs.newrelic.com/attribute-dictionary/?event=PageViewTiming&attribute=firstInteraction)
+      </td>
+
+      <td>
+        The time from when the request began to when the first user activity was recorded, such as a mouse click or a scroll.
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+        [First input delay](https://docs.newrelic.com/attribute-dictionary/?event=PageViewTiming&attribute=firstInputDelay)
+      </td>
+
+      <td>
+        Core Web Vitals: The time from when the request began to when the first browser response to user input was recorded.
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+        [Largest contentful paint](https://docs.newrelic.com/attribute-dictionary/?event=PageViewTiming&attribute=largestContentfulPaint)
+      </td>
+
+      <td>
+        Core Web Vitals: The render time of the largest content element that is visible in the viewport.
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+        [Duration](https://docs.newrelic.com/attribute-dictionary/?event=BrowserInteraction&attribute=duration)
+      </td>
+
+      <td>
+        The total duration of the session.
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+## Slow JavaScript execution and repainting [#slow-javascript-execution]
+
+Session traces help you identify callbacks in your JavaScript code that execute slowly and block the execution of subsequent calls on the browser's main thread. These calls should execute quickly in order to allow the browser to quickly repaint the page in response to user actions.
+
+Session traces highlight any callbacks longer than 33ms. If called in rapid succession (such as inside a `requestAnimationFrame` loop), callbacks longer than 33ms reduce the frame rate below 30 frames per second. This speed seems sluggish to users.
